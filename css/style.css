@@ -2,9 +2,9 @@ body {
     margin: 0;
     min-height: 100vh;
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #a1c4fd);
-    background-size: 300% 300%;
-    animation: movingGradient 20s ease infinite;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4, #fbc2eb, #aacbff, #abffb7, #97faf2, #fc4f97);
+    background-size: 500% 500%;
+    animation: movingGradient 48s ease infinite;
 }
 
 @keyframes movingGradient {
@@ -53,6 +53,7 @@ a {
     transform: scale(1.04);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
 
 
 /*                box 1                */
@@ -281,3 +282,181 @@ a {
     inset -4px -4px 8px #c5835d;
   background: #ecae89; /* Возвращаем исходный фон */
 }
+
+
+
+
+/*                       box5                       */
+.box5 .btn {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: 500;
+    color: #ffffff; /* Цвет текста */
+    background-color: #4CAF50; /* Основной цвет кнопки */
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.box5 .btn:hover {
+    background-color: #45a049; /* Цвет при наведении */
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+    transform: translateY(-2px);
+}
+
+.box5 .btn:active {
+    background-color: #3e8e41; /* Цвет при клике */
+    box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+    transform: translateY(0);
+}
+
+.box5 .btn:focus {
+    outline: 2px solid #81c784; /* Подсветка при фокусе */
+    outline-offset: 2px;
+}
+
+
+
+/*                box6                */
+.box6 {
+    background-color: #f3f3f3;
+  }
+
+  .box6 .btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 60px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333;
+    background: #e0e0e0; /* Совпадает с фоном */
+    border-radius: 16px;
+    box-shadow: 
+        6px 6px 12px #bebebe, /* Темная тень */
+        -6px -6px 12px #ffffff, /* Светлая тень */
+        inset 0 0 0 rgba(0, 0, 0, 0); /* Для анимации свечения */
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Эффект свечения при наведении */
+.box6 .btn:hover {
+    box-shadow: 
+        6px 6px 12px #bebebe, 
+        -6px -6px 12px #ffffff,
+        0 0 15px rgba(72, 187, 255, 0.6), /* Внешнее свечение */
+        0 0 30px rgba(72, 187, 255, 0.4); /* Внешнее более мягкое свечение */
+    transform: translateY(-2px);
+}
+
+/* Эффект вдавливания при нажатии */
+.box6 .btn:active {
+    box-shadow: inset 6px 6px 12px #bebebe, inset -6px -6px 12px #ffffff;
+    transform: translateY(0);
+}
+
+/* Анимация свечения */
+.box6 .btn::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 250%;
+    height: 250%;
+    background: radial-gradient(circle, rgba(72, 187, 255, 0.2), rgba(72, 187, 255, 0));
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    border-radius: 50%;
+}
+
+.box6 .btn:hover::after {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1.2); /* Увеличение свечения */
+}
+
+
+
+
+
+
+
+/*                        box7                        */
+.btn7 {
+    position: relative;
+    background: #fff;
+    color: #fff;
+    letter-spacing: 0.1em;
+    padding: 10px 40px;
+    transition:  0.5s;
+    font-size: 18px;
+    border-radius: 4px;
+}
+
+.btn7:hover {
+    color: #ff1867;
+    background-color: #ff1867;
+    letter-spacing: 0.25em;
+    box-shadow: 0 0 35px #ff1867;
+}
+
+.btn7::before {
+    content: '';
+    position: absolute;
+    inset: 2px;
+    background-color: #031321;
+}
+
+.box7 span {
+    position: relative;
+    z-index: 1;
+}
+
+.seven {
+    position: absolute;
+    inset: 0;
+    display: block;
+}
+
+.seven::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 80%;
+    width: 10px;
+    height: 4px;
+    background-color: #031321;
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+.btn7:hover .seven::before {
+    width: 20px;
+    left: 20%;
+}
+
+.seven::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+    width: 10px;
+    height: 4px;
+    background-color: #031321;
+    transform: translateX(-50%) skewX(325deg);
+    transition: 0.5s;
+}
+
+.btn7:hover .seven::after {
+    width: 20px;
+    left: 80%;
+}
+
