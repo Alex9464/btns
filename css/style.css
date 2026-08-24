@@ -1,3 +1,7 @@
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   min-height: 100vh;
@@ -40,6 +44,11 @@ a {
   text-decoration: none;
 }
 
+ul,
+ol {
+  list-style: none;
+}
+
 button {
   background: transparent;
   border: none;
@@ -77,14 +86,74 @@ button {
 
 .box:hover {
   transform: scale(1.04);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  box-shadow: 5px 12px 8px rgba(0, 0, 0, 0.6);
 }
 
+/*                        Header                        */
+.section-header {
+  min-height: 100vh;
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  background-image: url(../img/board.jpg);
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.nav {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: 20px;
+  position: fixed;
+  width: 80%;
+  left: 50%;
+  transform: translateX(-50%);
+  top: 10px;
+  z-index: 999;
+  border-radius: 30px;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 6px rgba(0, 0, 0, 0.5);
+}
+
+.nav-list {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+}
+
+.nav-link {
+  position: relative;
+  font-size: 18px;
+  color: #ffda79;
+  padding: 5px 0;
+
+  transition: color 300ms ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: #fff;
+
+  transition: 300ms ease;
+}
+
+.nav-link:hover {
+  color: #fff;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+  left: 0;
+}
 
 /*                      section-wall                      */
 .section-wall {
-  height: 450px;
+  height: 600px;
   background-color: #bba2d3;
   border-top: 2px solid #eee;
   border-bottom: 2px solid #eee;
@@ -130,7 +199,6 @@ button {
     transform: perspective(500px) rotateY(4deg) scale(1.02);
   }
 }
-
 
 /*                box 1                */
 .box1 .btn {
@@ -456,7 +524,6 @@ button {
   transform: translate(-50%, -50%) scale(1.2); /* Увеличение свечения */
 }
 
-
 /*                       Accordeon                       */
 .section-accordeon {
   display: flex;
@@ -464,7 +531,9 @@ button {
   align-items: center;
   justify-content: center;
   text-emphasis: center;
-  padding: 70px 0;
+  padding: 200px 0;
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
   background-color: #1e272e;
 }
 
@@ -510,6 +579,7 @@ button {
   scale: 1;
   opacity: 1;
   visibility: visible;
+  padding: 8px;
 }
 
 .accordeon-pic {
@@ -533,7 +603,11 @@ button {
   z-index: 1;
   padding: 15px;
   color: #fff;
-  background: linear-gradient(0deg, rgb(0 0 0 / 70%) 10%, rgb(255 255 255 / 0%) 100%);
+  background: linear-gradient(
+    0deg,
+    rgb(0 0 0 / 70%) 10%,
+    rgb(255 255 255 / 0%) 100%
+  );
   opacity: 0;
   visibility: hidden;
   transition: 1500ms ease;
@@ -554,19 +628,20 @@ button {
 
 .accordeon-title {
   font-weight: 100;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 4px;
   color: #fff;
-  margin-bottom: 3px;
+  margin-bottom: 10px;
   white-space: nowrap;
+  opacity: 0.8;
 }
 
 .accordeon-text {
   font-size: 10px;
   width: 100%;
   color: #ddd;
+  opacity: 0.6;
 }
-
 
 /*                        box7                        */
 .btn7 {
@@ -685,4 +760,12 @@ button {
 
 .box8 .btn:active {
   color: #fff;
+}
+
+
+
+/*                   Footer                   */
+.section-footer {
+  height: 400px;
+  background: #172938;
 }
