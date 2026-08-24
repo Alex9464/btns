@@ -53,8 +53,8 @@ button {
 .set-btns {
   display: flex;
   flex-wrap: wrap;
-  padding: 8px;
-  gap: 10px;
+  padding: 70px;
+  gap: 40px;
   justify-content: center;
 }
 
@@ -79,6 +79,58 @@ button {
   transform: scale(1.04);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
+
+
+
+/*                      section-wall                      */
+.section-wall {
+  height: 450px;
+  background-color: #bba2d3;
+  border-top: 2px solid #eee;
+  border-bottom: 2px solid #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.mirror {
+  width: 900px;
+  height: 300px;
+  font-size: 20px;
+  text-align: center;
+  align-content: center;
+  color: #fff;
+  background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+  background-size: 400% 400%;
+  animation: gradient 8000ms ease infinite, morph 5000ms ease infinite;
+  border: 2.5px solid #eee;
+  border-radius: 5px;
+  transform-style: preserve-3d;
+  box-shadow: 4px 12px 22px rgba(0, 0, 0, 0.7);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes morph {
+  0%,
+  100% {
+    transform: perspective(500px) rotateY(0deg) scale(1);
+  }
+  50% {
+    transform: perspective(500px) rotateY(4deg) scale(1.02);
+  }
+}
+
 
 /*                box 1                */
 .box1 .btn {
@@ -404,6 +456,118 @@ button {
   transform: translate(-50%, -50%) scale(1.2); /* Увеличение свечения */
 }
 
+
+/*                       Accordeon                       */
+.section-accordeon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-emphasis: center;
+  padding: 70px 0;
+  background-color: #1e272e;
+}
+
+.accordeon {
+  width: 100%;
+  height: 200px;
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+
+  transition: 300ms;
+}
+
+.accordeon:hover {
+  gap: 0;
+}
+
+.accordeon-item {
+  position: relative;
+  overflow: hidden;
+  flex: 0 0 80px;
+  border: 1px solid #ddd;
+  border-radius: 50px;
+  cursor: pointer;
+  border-radius: 10px;
+
+  transition: 300ms;
+}
+
+.accordeon-item:hover {
+  flex: 0 1 260px;
+  scale: 1.1;
+  z-index: 5;
+  opacity: 1;
+}
+
+.accordeon-item:hover .accordeon-content {
+  opacity: 1;
+  visibility: visible;
+}
+
+.accordeon-item:hover .accordeon-wrap {
+  scale: 1;
+  opacity: 1;
+  visibility: visible;
+}
+
+.accordeon-pic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  translate: -50% -50%;
+  object-fit: cover;
+
+  transition: 300ms;
+}
+
+.accordeon-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  padding: 15px;
+  color: #fff;
+  background: linear-gradient(0deg, rgb(0 0 0 / 70%) 10%, rgb(255 255 255 / 0%) 100%);
+  opacity: 0;
+  visibility: hidden;
+  transition: 1500ms ease;
+}
+
+.accordeon-wrap {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  translate: -50%;
+  scale: 0.85;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  text-align: center;
+  width: 75%;
+}
+
+.accordeon-title {
+  font-weight: 100;
+  font-size: 20px;
+  line-height: 4px;
+  color: #fff;
+  margin-bottom: 3px;
+  white-space: nowrap;
+}
+
+.accordeon-text {
+  font-size: 10px;
+  width: 100%;
+  color: #ddd;
+}
+
+
 /*                        box7                        */
 .btn7 {
   position: relative;
@@ -474,49 +638,51 @@ button {
 }
 
 .btn7:active {
-    color: #fff;
+  color: #fff;
 }
 
-/* ------------------box8------------------ */
+/*                         box8                         */
 :root {
-    --primary: 250 66% 66%;
+  --primary: 250 66% 66%;
 }
 .box8 .btn {
-    position: relative;
-    overflow: hidden;
-    display: inline-block;
-    padding: 10px 45px;
-    font-size: 18px;
-    color: #13ca0d;
-    border: 2px solid #13ca0d;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 255, 136, 0.5), 0 0 26 rgba(0, 255, 136, 0.3), 0 0 30px rgba(0, 255, 136, 0.2);
-    transition: 400ms ease;
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  padding: 10px 45px;
+  font-size: 18px;
+  color: #13ca0d;
+  border: 2px solid #13ca0d;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.5), 0 0 26 rgba(0, 255, 136, 0.3),
+    0 0 30px rgba(0, 255, 136, 0.2);
+  transition: 400ms ease;
 }
 
 .box8 .btn::before {
-    content: " ";
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 300%;
-    height: 300%;
-    background: radial-gradient(circle, rgba(0, 255, 136, 0.4), transparent);
-    transform: translate(-50%, -50%) scale(0);
-    transition: transform 600ms ease;
-    z-index: 0;
+  content: " ";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 300%;
+  height: 300%;
+  background: radial-gradient(circle, rgba(0, 255, 136, 0.4), transparent);
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 600ms ease;
+  z-index: 0;
 }
 
 .box8 .btn:hover {
-    color: #1a1a1a;
-    background-color: #00ff88;
-    box-shadow: 0 0 20px rgba(0, 255, 136, 0.8), 0 0 40px rgba(0, 255, 136, 0.6), 0 0 60px rgba(0, 255, 136, 0.4);
+  color: #1a1a1a;
+  background-color: #00ff88;
+  box-shadow: 0 0 20px rgba(0, 255, 136, 0.8), 0 0 40px rgba(0, 255, 136, 0.6),
+    0 0 60px rgba(0, 255, 136, 0.4);
 }
 
 .box8 .btn:hover::before {
-    transform: translate(-50%, -50%) scale(1);
+  transform: translate(-50%, -50%) scale(1);
 }
 
 .box8 .btn:active {
-    color: #fff;
+  color: #fff;
 }
