@@ -49,6 +49,12 @@ ol {
   list-style: none;
 }
 
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
 button {
   background: transparent;
   border: none;
@@ -63,6 +69,8 @@ button {
   display: flex;
   flex-wrap: wrap;
   padding: 70px;
+  margin: 0 auto;
+  width: 1700px;
   gap: 40px;
   justify-content: center;
 }
@@ -149,11 +157,10 @@ button {
   left: 0;
 }
 
-
 /*                  Profile Card                  */
 :root {
-  --primary: rgba(255,70, 86, 0.9);
-  --secondary: rgba(89,205,255, 0.9);
+  --primary: rgba(255, 70, 86, 0.9);
+  --secondary: rgba(89, 205, 255, 0.9);
 }
 
 .profile-card {
@@ -166,7 +173,8 @@ button {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   border-radius: 20px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top: 3px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
   transform-style: preserve-3d;
   animation: float 6000ms ease-in-out infinite;
@@ -219,7 +227,8 @@ button {
   width: 40px;
   height: 40px;
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.4);
   border-radius: 50%;
   display: grid;
   place-items: center;
@@ -241,9 +250,9 @@ button {
   font-size: 14px;
   color: #fff;
   letter-spacing: 1.7px;
-  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-right: 2px solid rgba(255, 255, 255, 0.2);
   border-radius: 25px;
-  background: linear-gradient(45deg, var(--primary), var(--secondary));
 
   transition: 300ms;
 }
@@ -254,7 +263,8 @@ button {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0) rotate(0);
   }
   25% {
@@ -268,7 +278,7 @@ button {
 /*                      section-wall                      */
 .section-wall {
   height: 600px;
-  background-color: #bba2d3;
+  background-color: #c6bdce;
   border-top: 2px solid #eee;
   border-bottom: 2px solid #eee;
   display: flex;
@@ -285,7 +295,7 @@ button {
   color: #fff;
   background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
-  animation: gradient 8000ms ease infinite, morph 5000ms ease infinite;
+  animation: gradient 8000ms ease infinite, morph 7500ms ease infinite;
   border: 2.5px solid #eee;
   border-radius: 5px;
   transform-style: preserve-3d;
@@ -876,7 +886,291 @@ button {
   color: #fff;
 }
 
+/*                    Neomorphism Gallery                    */
+:root {
+  --first-color: hsl(82, 60%, 28%);
+  --title-color: hsl(0, 0%, 15%);
+  --text-color: hsl(0, 0%, 35%);
+  --body-color: hsl(0, 0%, 95%);
+  --container-color: hsl(0, 0%, 100%, 0.2);
+}
 
+.morph_gallery {
+  margin-bottom: 100px;
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: center;
+}
+
+.morph_gallery-item {
+  position: relative;
+  overflow: hidden;
+}
+
+.morph_gallery-item:hover {
+  animation: remove-overflow 2000ms forwards;
+}
+
+.morph_gallery-item:not(:hover) {
+  animation: show-overflow 2000ms forwards;
+}
+
+.morph_gallery-pic {
+  width: 278px;
+  height: 600px;
+  border-radius: 15px;
+  background-color: #114957;
+}
+
+.morph_gallery-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -110px;
+  width: 240px;
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  border-right: 3px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem 2rem;
+  margin-inline: auto;
+  opacity: 0;
+  background-color: var(--container-color);
+  box-shadow: 3px 8px 16px hsla(0, 0%, 0%, 0.5);
+  backdrop-filter: blur(6px);
+
+  transition: opacity 1000ms 1000ms;
+}
+
+.morph_gallery-item:hover .morph_gallery-content {
+  animation: show-data 1000ms forwards;
+  opacity: 1;
+  transition: opacity 300ms;
+}
+
+.morph_gallery-item:not(:hover) .morph_gallery-content {
+  animation: remove-data 1000ms forwards;
+}
+
+.morph_gallery-description {
+  display: block;
+  color: #d1d1d1;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.morph_gallery-title {
+  font-size: 20px;
+  color: #e4e4e4;
+  margin-bottom: 20px;
+}
+
+.morph_gallery-btn {
+  font-size: 14px;
+  color: #464646;
+}
+
+.morph_gallery-btn:hover {
+  text-decoration: underline;
+}
+
+@keyframes show-data {
+  50% {
+    transform: translateY(-150px);
+  }
+  100% {
+    transform: translateY(-80px);
+  }
+}
+
+@keyframes remove-overflow {
+  to {
+    overflow: initial;
+  }
+}
+
+@keyframes remove-data {
+  0% {
+    transform: translateY(-70px);
+  }
+  50% {
+    transform: translateY(-180px);
+  }
+  100% {
+    transform: translateY(90px);
+  }
+}
+
+@keyframes show-overflow {
+  0% {
+    overflow: initial;
+    pointer-events: none;
+  }
+  50% {
+    overflow: hidden;
+  }
+}
+
+/*                Neomorphism soc list                */
+.section-morph {
+  display: flex;
+  flex-direction: column;
+  height: 1000px;
+  padding: 30px;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(315deg, #ffffff 0%, #d7e1ec 74%);
+}
+
+.morph-list {
+  display: flex;
+  gap: 15px;
+}
+
+.morph-item:nth-child(1):hover .morph-icon {
+  fill: url(#instagram-grad);
+}
+
+.morph-item:nth-child(2):hover .morph-icon {
+  fill: #29a839;
+}
+
+.morph-item:nth-child(3):hover .morph-icon {
+  fill: #2fa2d9;
+}
+
+.morph-item:nth-child(4):hover .morph-icon {
+  fill: #762ba1;
+}
+
+.morph-item:nth-child(5):hover .morph-icon {
+  fill: #0076ae;
+}
+
+.morph-item:nth-child(6):hover .morph-icon {
+  fill: #bd2b2c;
+}
+
+.morph-item:nth-child(7):hover .morph-icon {
+  fill: #3a5a97;
+}
+
+.morph-item:nth-child(8):hover .morph-icon {
+  fill: #de4b41;
+}
+
+.morph-item:nth-child(9):hover .morph-icon {
+  fill: #2ba7dd;
+}
+
+.morph-item:nth-child(10):hover .morph-icon {
+  fill: #cc111a;
+}
+
+.morph-item:nth-child(11):hover .morph-icon {
+  fill: #4f81bc;
+}
+
+.morph-link {
+  display: inline-flex;
+  width: 60px;
+  height: 60px;
+  padding: 0 16.5px;
+  color: #161616;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 50px;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+  transition: 360ms ease;
+}
+
+.morph-link:hover {
+  width: 200px;
+}
+
+.morph-icon {
+  flex-shrink: 0;
+  width: 27px;
+  height: 27px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: 300ms ease-in-out;
+}
+
+.morph-link span {
+  font-size: 20px;
+  font-weight: 500;
+  margin-left: 17px;
+  white-space: nowrap;
+
+  transition: 300ms ease;
+}
+
+.morph-item:nth-child(1) .morph-link span {
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.morph-item:nth-child(5) .morph-link span {
+  margin-top: 10px;
+}
+
+.morph-item:nth-child(1):hover .morph-link span {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.morph-item:nth-child(2):hover .morph-link span {
+  color: #29a839;
+}
+
+.morph-item:nth-child(3):hover .morph-link span {
+  color: #2fa2d9;
+}
+
+.morph-item:nth-child(4):hover .morph-link span {
+  color: #762ba1;
+}
+
+.morph-item:nth-child(5):hover .morph-link span {
+  color: #0076ae;
+}
+
+.morph-item:nth-child(6):hover .morph-link span {
+  color: #bd2b2c;
+}
+
+.morph-item:nth-child(7):hover .morph-link span {
+  color: #3a5a97;
+}
+
+.morph-item:nth-child(8):hover .morph-link span {
+  color: #de4b41;
+}
+
+.morph-item:nth-child(9):hover .morph-link span {
+  color: #2ba7dd;
+}
+
+.morph-item:nth-child(10):hover .morph-link span {
+  color: #cc111a;
+}
+
+.morph-item:nth-child(11):hover .morph-link span {
+  color: #4f81bc;
+}
 
 /*                   Footer                   */
 .section-footer {
