@@ -117,14 +117,15 @@ button {
   top: 10px;
   z-index: 999;
   border-radius: 30px;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  border-right: 1px solid rgba(255, 255, 255, 0.5);
   box-shadow: 0 6px 6px rgba(0, 0, 0, 0.5);
 }
 
 .nav-list {
   display: flex;
   justify-content: center;
-  gap: 80px;
+  gap: 90px;
 }
 
 .nav-link {
@@ -158,11 +159,6 @@ button {
 }
 
 /*                  Profile Card                  */
-:root {
-  --primary: rgba(255, 70, 86, 0.9);
-  --secondary: rgba(89, 205, 255, 0.9);
-}
-
 .profile-card {
   position: absolute;
   top: 31%;
@@ -171,13 +167,14 @@ button {
   height: 500px;
   padding: 29px;
   background: rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(10px);
+  overflow: hidden;
+  backdrop-filter: blur(6px);
   border-radius: 20px;
   border-top: 3px solid rgba(255, 255, 255, 0.3);
   border-right: 1px solid rgba(255, 255, 255, 0.4);
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
   transform-style: preserve-3d;
-  animation: float 6000ms ease-in-out infinite;
+  animation: float 10000ms ease-in-out infinite;
   transition: 300ms ease;
 }
 
@@ -275,10 +272,96 @@ button {
   }
 }
 
+/*               Блики               */
+.blick {
+  position: absolute;
+  top: 20%;
+  left: 0;
+  width: 400px;
+  height: 100px;
+  filter: blur(16px);
+  background: linear-gradient(45deg,rgba(255, 255, 255, 0.001), rgba(255, 255, 255, 0.5));
+  transform: skewY(-38deg);
+  z-index: -1;
+  pointer-events: none;
+  animation: blick 15200ms ease-in-out infinite;
+}
+
+.blick1 {
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  width: 400px;
+  height: 20px;
+  filter: blur(13px);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.001));
+  z-index: -1;
+  transform: skewY(-38deg);
+  pointer-events: none;
+  animation: blick 16000ms ease-in-out infinite;
+}
+
+.blick2 {
+  position: absolute;
+  top: -10%;
+  left: 0;
+  width: 400px;
+  height: 20px;
+  filter: blur(8px);
+  z-index: -1;
+  background-color: #ffffff2a;
+  transform: skewY(-38deg);
+  pointer-events: none;
+  animation: blick 14500ms ease-in-out infinite;
+
+}
+
+.blick3 {
+  position: absolute;
+  bottom: 4%;
+  left: 0;
+  width: 400px;
+  height: 150px;
+  filter: blur(16px);
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.001));
+  transform: skewY(-38deg);
+  z-index: -1;
+  pointer-events: none;
+  animation: blick 13500ms ease-in-out infinite;
+
+}
+
+.blick4 {
+  position: absolute;
+  bottom: 12%;
+  left: 0;
+  width: 400px;
+  height: 20px;
+  filter: blur(13px);
+  z-index: -1;
+  background: linear-gradient(45deg,rgba(255, 255, 255, 0.001), rgba(255, 255, 255, 0.7));
+  transform: skewY(-38deg);
+  animation: blick 14800ms ease-in-out infinite;
+}
+
+@keyframes blick {
+  0%,
+  100% {
+    transform: translateY(0) skewY(-38deg);
+  }
+  25% {
+    transform: translateY(-35px) skewY(-38deg);
+  }
+  75% {
+    transform: translateY(35px) skewY(-38deg);
+  }
+}
+
+
+
 /*                      section-wall                      */
 .section-wall {
   height: 600px;
-  background-color: #c6bdce;
   border-top: 2px solid #eee;
   border-bottom: 2px solid #eee;
   display: flex;
@@ -295,7 +378,7 @@ button {
   color: #fff;
   background: linear-gradient(45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
   background-size: 400% 400%;
-  animation: gradient 8000ms ease infinite, morph 7500ms ease infinite;
+  animation: gradient 7700ms ease infinite, morph 7500ms ease infinite;
   border: 2.5px solid #eee;
   border-radius: 5px;
   transform-style: preserve-3d;
@@ -482,7 +565,6 @@ button {
 }
 
 /*                  box 3                  */
-/* Кнопка в стиле неоморфизм */
 .box3 {
   background-color: #f3f3f3;
 }
@@ -496,26 +578,20 @@ button {
   background: #e0e0e0;
   border-radius: 50px;
   border: none;
-  box-shadow: 8px 8px 16px #bebebe,
-    /* Тень, уходящая вниз */ -8px -8px 16px #ffffff; /* Тень, создающая "выпуклость" */
+  box-shadow: 8px 8px 16px #bebebe, -8px -8px 16px #ffffff;
   transition: all 0.3s ease;
 }
 
 .box3 .btn:hover {
-  box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff; /* При наведении тени становятся менее выраженными */
-  background: linear-gradient(
-    145deg,
-    #d6d6d6,
-    #f0f0f0
-  ); /* Слегка изменяем фон */
+  box-shadow: 4px 4px 8px #bebebe, -4px -4px 8px #ffffff;
+  background: linear-gradient(145deg, #d6d6d6, #f0f0f0);
   color: #fff;
 }
 
 .box3 .btn:active {
   font-size: 14px;
-  box-shadow: inset 4px 4px 8px #bebebe,
-    /* Внутренние тени для эффекта нажатия */ inset -4px -4px 8px #ffffff;
-  background: #e0e0e0; /* Возвращаем исходный фон */
+  box-shadow: inset 4px 4px 8px #bebebe, inset -4px -4px 8px #ffffff;
+  background: #e0e0e0;
 }
 
 /*                 box 4                 */
@@ -549,9 +625,8 @@ button {
 
 .box4 .btn:active {
   font-size: 14px;
-  box-shadow: inset 4px 4px 8px #a57052,
-    /* Внутренние тени для эффекта нажатия */ inset -4px -4px 8px #c5835d;
-  background: #ecae89; /* Возвращаем исходный фон */
+  box-shadow: inset 4px 4px 8px #a57052, inset -4px -4px 8px #c5835d;
+  background: #ecae89;
 }
 
 /*                       box5                       */
@@ -560,8 +635,8 @@ button {
   padding: 12px 24px;
   font-size: 16px;
   font-weight: 500;
-  color: #ffffff; /* Цвет текста */
-  background-color: #4caf50; /* Основной цвет кнопки */
+  color: #ffffff;
+  background-color: #4caf50;
   border: none;
   border-radius: 8px;
   outline: none;
@@ -571,19 +646,19 @@ button {
 }
 
 .box5 .btn:hover {
-  background-color: #45a049; /* Цвет при наведении */
+  background-color: #45a049;
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
   transform: translateY(-2px);
 }
 
 .box5 .btn:active {
-  background-color: #3e8e41; /* Цвет при клике */
+  background-color: #3e8e41;
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
   transform: translateY(0);
 }
 
 .box5 .btn:focus {
-  outline: 2px solid #81c784; /* Подсветка при фокусе */
+  outline: 2px solid #81c784;
   outline-offset: 2px;
 }
 
@@ -601,30 +676,26 @@ button {
   font-size: 16px;
   font-weight: bold;
   color: #333;
-  background: #e0e0e0; /* Совпадает с фоном */
+  background: #e0e0e0;
   border-radius: 16px;
-  box-shadow: 6px 6px 12px #bebebe, /* Темная тень */ -6px -6px 12px #ffffff,
-    /* Светлая тень */ inset 0 0 0 rgba(0, 0, 0, 0); /* Для анимации свечения */
+  box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff,
+    inset 0 0 0 rgba(0, 0, 0, 0);
   transition: box-shadow 0.3s ease, transform 0.2s ease;
   position: relative;
   overflow: hidden;
 }
 
-/* Эффект свечения при наведении */
 .box6 .btn:hover {
   box-shadow: 6px 6px 12px #bebebe, -6px -6px 12px #ffffff,
-    0 0 15px rgba(72, 187, 255, 0.6),
-    /* Внешнее свечение */ 0 0 30px rgba(72, 187, 255, 0.4); /* Внешнее более мягкое свечение */
+    0 0 15px rgba(72, 187, 255, 0.6), 0 0 30px rgba(72, 187, 255, 0.4);
   transform: translateY(-2px);
 }
 
-/* Эффект вдавливания при нажатии */
 .box6 .btn:active {
   box-shadow: inset 6px 6px 12px #bebebe, inset -6px -6px 12px #ffffff;
   transform: translateY(0);
 }
 
-/* Анимация свечения */
 .box6 .btn::after {
   content: "";
   position: absolute;
@@ -645,7 +716,7 @@ button {
 
 .box6 .btn:hover::after {
   opacity: 1;
-  transform: translate(-50%, -50%) scale(1.2); /* Увеличение свечения */
+  transform: translate(-50%, -50%) scale(1.2);
 }
 
 /*                       Accordeon                       */
@@ -887,14 +958,6 @@ button {
 }
 
 /*                    Neomorphism Gallery                    */
-:root {
-  --first-color: hsl(82, 60%, 28%);
-  --title-color: hsl(0, 0%, 15%);
-  --text-color: hsl(0, 0%, 35%);
-  --body-color: hsl(0, 0%, 95%);
-  --container-color: hsl(0, 0%, 100%, 0.2);
-}
-
 .morph_gallery {
   margin-bottom: 100px;
   display: flex;
@@ -935,7 +998,7 @@ button {
   padding: 1.5rem 2rem;
   margin-inline: auto;
   opacity: 0;
-  background-color: var(--container-color);
+  background-color: hsl(0, 0%, 100%, 0.2);
   box-shadow: 3px 8px 16px hsla(0, 0%, 0%, 0.5);
   backdrop-filter: blur(6px);
 
@@ -1025,6 +1088,7 @@ button {
 .morph-list {
   display: flex;
   gap: 15px;
+  width: 820px;
 }
 
 .morph-item:nth-child(1):hover .morph-icon {
@@ -1171,6 +1235,153 @@ button {
 .morph-item:nth-child(11):hover .morph-link span {
   color: #4f81bc;
 }
+
+/*                Freedom                */
+.section-sea {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  justify-content: center;
+  height: 1100px;
+  background-color: hsl(0, 0%, 98%);
+}
+
+.sea-list {
+  display: flex;
+  gap: 15px;
+  width: 700px;
+  height: 700px;
+}
+
+.sea-item {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background-color: #114957;
+
+  transition: flex 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.sea-item:hover {
+  flex: 2.5;
+}
+
+.sea-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Контент поверх картинки */
+.sea-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 20px;
+  background: linear-gradient(180deg, transparent 0%, rgba(0, 0, 0, 0.8) 100%);
+  color: #fff;
+  /* opacity: 0; */
+  transform: translateY(100%);
+  transition: opacity 0.4s ease 0.2s,
+    transform 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.sea-item:hover .sea-content {
+  /* opacity: 1; */
+  transform: translateY(0);
+}
+
+.sea-title {
+  margin: 0 0 8px 0;
+  font-size: 22px;
+}
+
+.sea-text {
+  margin: 0;
+  font-size: 14px;
+}
+
+.sea-wrap {
+  display: flex;
+  flex-direction: column-reverse;
+  margin-bottom: 250px;
+}
+
+.sea-banner {
+  font-weight: bolder;
+  font-size: 230px;
+  /* background: linear-gradient(135deg, #093637 0%, #44a08d 50%, #0083b0 100%); */
+  line-height: 0.8;
+  pointer-events: none;
+  background: linear-gradient(
+    135deg, 
+    #093637 0%, 
+    #44a08d 35%, 
+    #136c83 50%, 
+    #0f6072 75%, 
+    #235eb1 100%
+  );
+  /* background: linear-gradient(135deg, #0d3b46 0%, #208e75 50%, #006688 100%); */
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+
+  filter: drop-shadow(-2px -2px 1px rgba(0, 0, 0, 0.45));
+  text-shadow: 7px 5px 4px rgba(255, 255, 255, 0.2);
+
+  background-size: 200% auto;
+  background-position: left center;
+  transition: color 0.4s ease, background-position 0.5s ease;
+}
+
+.sea-link {
+  position: relative;
+  display: flex;
+  color: #0083b0;
+  cursor: pointer;
+  justify-content: center;
+  font-size: 16px;
+  letter-spacing: 1px;
+
+  transition: 350ms ease;
+}
+
+.sea-link::before {
+  position: absolute;
+  content: '';
+  left: 35%;
+  top: 50%;
+  height: 1px;
+  width: 55px;
+  background-color: #2c91cc;
+
+  transition: 300ms ease;
+}
+
+.sea-link:hover {
+  letter-spacing: 2.5px;
+  background: linear-gradient(135deg, #093637 0%, #44a08d 50%, #0083b0 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+
+.sea-link:hover::before {
+  width: 45px;
+}
+
+.sea-link:hover + .sea-banner {
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  background-position: right center;
+}
+
 
 /*                   Footer                   */
 .section-footer {
